@@ -23,14 +23,14 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.print("Enter the name for the new Address Book: ");
-                    scanner.nextLine(); // Consume newline character
+                    scanner.nextLine();
                     String newAddressBookName = scanner.nextLine();
                     addressBookHelper.addAddressBook(newAddressBookName);
                     break;
 
                 case 2:
                     System.out.print("Enter the name of the Address Book you want to access: ");
-                    scanner.nextLine(); // Consume newline character
+                    scanner.nextLine();
                     String accessAddressBookName = scanner.nextLine();
                     AddressBook accessedAddressBook = addressBookHelper.accessAddressBook(accessAddressBookName);
                     if (accessedAddressBook != null) {
@@ -46,28 +46,28 @@ public class Main {
 
                 case 4:
                     System.out.print("Enter the city to search: ");
-                    scanner.nextLine(); // Consume newline character
+                    scanner.nextLine();
                     String searchCity = scanner.nextLine();
                     addressBookHelper.searchContactsByCity(searchCity);
                     break;
 
                 case 5:
                     System.out.print("Enter the state to search: ");
-                    scanner.nextLine(); // Consume newline character
+                    scanner.nextLine();
                     String searchState = scanner.nextLine();
                     addressBookHelper.searchContactsByState(searchState);
                     break;
 
                 case 6:
                     System.out.print("Enter the city to count contacts: ");
-                    scanner.nextLine(); // Consume newline character
+                    scanner.nextLine();
                     String countCity = scanner.nextLine();
                     addressBookHelper.countContactsByCity(countCity);
                     break;
 
                 case 7:
                     System.out.print("Enter the state to count contacts: ");
-                    scanner.nextLine(); // Consume newline character
+                    scanner.nextLine();
                     String countState = scanner.nextLine();
                     addressBookHelper.countContactsByState(countState);
                     break;
