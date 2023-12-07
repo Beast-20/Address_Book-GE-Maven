@@ -18,7 +18,8 @@ CREATE TABLE IF NOT EXISTS AddressBook (
 INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email)
 VALUES 
     ('Himanshu', 'Agrawal', '123 GN', 'Amravati', 'Maharashtra', '444705', '7744940500', 'him@gmail.com'),
-    ('John', 'DOE', '123 NewYork', 'NY', 'ABC', '123456', '7746545424', 'john@gmail.com');
+    ('John', 'DOE', '123 NewYork', 'NY', 'ABC', '123456', '7746545424', 'john@gmail.com'),
+    ('Omkar','Bharitkar','Vavi Ves','Amravati','Maharshtra','444705','9896421780','om@gmail.com')
 
 SELECT * FROM AddressBook;
 
@@ -29,8 +30,11 @@ WHERE first_name = 'Himanshu' AND last_name = 'Agrawal';
 --UC 5
 DELETE FROM AddressBook WHERE first_name = 'John' AND last_name = 'DOE';
 
+INSERT INTO AddressBook (first_name, last_name, address, city, state, zip, phone_number, email)
+VALUES ('Anil', 'Agarakar', '123 NewYork', 'NY', 'ABC', '123456', '7746545424', 'anil@gmail.com');
+
 --UC 6
-SELECT * FROM AddressBook WHERE city='Amravati' OR state='ABC';
+SELECT * FROM AddressBook WHERE city='Amravati';
 
 --UC 7
 SELECT City, State, COUNT(*) AS Size
@@ -54,12 +58,12 @@ ADD COLUMN type VARCHAR(20);
 UPDATE AddressBook
 SET name = first_name || ' ' || last_name,
     type = 'Family' 
-WHERE first_name='Himanshu'; 
+WHERE first_name='Himanshu' OR last_name='Bharitkar'; 
 
 UPDATE AddressBook
 SET name = first_name || ' ' || last_name,
     type = 'Friend' 
-WHERE first_name='John'; 
+WHERE first_name='Anil'; 
 
 
 SELECT * FROM AddressBook;
