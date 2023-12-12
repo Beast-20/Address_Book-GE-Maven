@@ -92,9 +92,11 @@ public class Main {
             System.out.println("3. Delete Contact");
             System.out.println("4. Sort Address Book");
             System.out.println("5. Display Contacts");
-            System.out.println("6. To write the file");
-            System.out.println("7. To read from the file");
-            System.out.println("8. Go to main menu");
+            System.out.println("6. To write the CSV file");
+            System.out.println("7. To read from the CSV file");
+            System.out.println("8. To write the JSON file");
+            System.out.println("9. To read from the json file");
+            System.out.println("10. Go to the main menu");
             System.out.print("Enter your choice: ");
             Scanner scanner = new Scanner(System.in);
             int choice = scanner.nextInt();
@@ -128,6 +130,13 @@ public class Main {
                     break;
 
                 case 8:
+                    addressBookHelper.writetoJsonFile(addressBook);
+                    break;
+                case 9:
+                    addressBookHelper.readfromFile(addressBook);
+                    break;
+
+                case 10:
                     return;
 
                 
