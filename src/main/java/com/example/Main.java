@@ -1,12 +1,13 @@
 package com.example;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         AddressBookHelper addressBookHelper = new AddressBookHelper();
         Scanner scanner = new Scanner(System.in);
-
+        // DBO.add_column_date_added();
         while (true) {
             System.out.println("\n===== Address Book Management System =====");
             System.out.println("1. Add new Address Book");
@@ -16,7 +17,8 @@ public class Main {
             System.out.println("5. Search contacts by state across all address books");
             System.out.println("6. Count contacts by city across all address books");
             System.out.println("7. Count contacts by state across all address books");
-            System.out.println("8. Exit");
+            System.out.println("8. Show contacts added in particular period");
+            System.out.println("9. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
@@ -60,19 +62,25 @@ public class Main {
 
                 case 6:
                     System.out.print("Enter the city to count contacts: ");
-                    scanner.nextLine();
+                    //scanner.nextLine();
                     String countCity = scanner.nextLine();
-                    addressBookHelper.countContactsByCity(countCity);
+                    System.out.println(DBO.countContacts_by_city(countCity));
                     break;
 
                 case 7:
                     System.out.print("Enter the state to count contacts: ");
                     scanner.nextLine();
                     String countState = scanner.nextLine();
-                    addressBookHelper.countContactsByState(countState);
+                    System.out.println(DBO.countContacts_by_state(countState));
                     break;
-
+                
                 case 8:
+                    List<Contact> contacts = DBO.get_contact_added_between_dates("2023-01-01", "2023-12-13");
+                    for (Contact contact : contacts) {
+                        System.out.println(contact);
+                    }
+                    break;
+                case 9:
                     System.out.println("Exiting Address Book Management System. Goodbye!");
                     System.exit(0);
                     break;
