@@ -1,0 +1,24 @@
+[
+  {
+    "firstName": "Himanshu",
+    "lastName": "Agrawal",
+    "address": "123 GN",
+    "city": "Anjangaon",
+    "state": "Maharashtra",
+    "zip": "444705",
+    "phoneNumber": "7744084447",
+    "email": "himanshuagrawal2002@gmail.com"
+  },
+
+  {
+    "firstName": "Richa",
+    "lastName": "Agrawal",
+    "address": "123 GN",
+    "city": "Anjangaon",
+    "state": "Maharashtra",
+    "zip": "444705",
+    "phoneNumber": "7744084447",
+    "email": "himanshuagrawal2002@gmail.com"
+  }
+
+]

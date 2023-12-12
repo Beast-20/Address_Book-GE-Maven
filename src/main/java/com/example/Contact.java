@@ -10,7 +10,10 @@ public class Contact {
     private String zip;
     private String phoneNumber;
     private String email;
-
+    
+    public Contact(){
+        
+    }
     public Contact(String firstName, String lastName, String address, String city, String state, String zip, String phoneNumber, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

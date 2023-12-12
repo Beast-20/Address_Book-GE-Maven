@@ -13,6 +13,11 @@ import com.opencsv.exceptions.CsvValidationException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.ProcessBuilder.Redirect.Type;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 
 public class AddressBookHelper {
@@ -183,6 +188,41 @@ public class AddressBookHelper {
           catch (CsvValidationException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void writetoJsonFile(AddressBook addressBook){
+        String path = addressBook.getName() + "json";
+        List<Contact> contacts = addressBook.getContacts();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter(path,false)){
+            gson.toJson(contacts,writer);
+            System.out.println("Addressbook added to Json File");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public void readtoJsonFile(AddressBook addressBook){
+        String path = addressBook.getName() + "json";
+        List<Contact> contacts;
+        Gson gson = new Gson();
+        try(FileReader reader = new FileReader(path)){
+            java.lang.reflect.Type contactListType = new TypeToken<List<Contact>>() {}.getType();
+            contacts = gson.fromJson(reader,contactListType);
+            for(int i = 0;i<contacts.size();i++){
+                Contact temp = new Contact();
+                temp = contacts.get(i);
+                if(!addressBook.isDuplicate(temp)){
+                    addressBook.addContact(temp);
+                }
+            }
+            System.out.println("Contacts from Json File read successfully");
+        }
+        catch(IOException e){
+            e.printStackTrace();
+        }
+
     }
 
 
