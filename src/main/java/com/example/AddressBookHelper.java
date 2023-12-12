@@ -157,11 +157,13 @@ public class AddressBookHelper {
         String phoneNumber = scanner.nextLine();
         System.out.print("Enter Email: ");
         String email = scanner.nextLine();
+        System.out.print("Enter Type: ");
+        String type = scanner.nextLine();
 
         Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
 
         if (!addressBook.isDuplicate(newContact)) {
-            addressBook.addContact(newContact);
+            addressBook.addContact(newContact,type);
             System.out.println("Contact added successfully.");
         } else {
             System.out.println("Duplicate entry. Contact not added.");
@@ -176,7 +178,7 @@ public class AddressBookHelper {
             while((line = reader.readNext())!=null){
                 Contact contact = new Contact(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7]);
                 if (!addressBook.isDuplicate(contact)) {
-            addressBook.addContact(contact);
+            addressBook.addContact(contact,null);
             }
             }
             System.out.println("Contact read successfully from file");
@@ -214,7 +216,7 @@ public class AddressBookHelper {
                 Contact temp = new Contact();
                 temp = contacts.get(i);
                 if(!addressBook.isDuplicate(temp)){
-                    addressBook.addContact(temp);
+                    addressBook.addContact(temp,null);
                 }
             }
             System.out.println("Contacts from Json File read successfully");

@@ -18,8 +18,9 @@ public class AddressBook {
         return name;
     }
 
-    public void addContact(Contact contact) {
+    public void addContact(Contact contact, String Type) {
         contacts.add(contact);
+        DBO.write_to_db(Type,contact);
     }
 
     public void editContact(String firstName, Contact updatedContact) {
